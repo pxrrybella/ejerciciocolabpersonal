@@ -1,0 +1,29 @@
+public static HashMap <String, ArrayList<Double>> inicializarHashmap(HashMap <String, ArrayList<Double>> nombreHashmap){
+		Scanner teclado = new Scanner(System.in);
+		String resp = "s";
+
+		do {
+			System.out.println("\nPor favor, ingrese el nombre del alumno a continuación:");
+			String nombre = teclado.next();
+			System.out.println("Ingrese la cantidad de notas de " + nombre);
+			int cantNotas = teclado.nextInt();
+			ArrayList <Double> arrayNotas = new ArrayList<Double>();
+			for (int i = 0; i < cantNotas; i++) {
+				double nota = 0;
+				do {
+					System.out.println("Ingrese la nota " + (i+1) + " utilizando COMAS para demarcar decimales.");
+					nota = teclado.nextDouble();
+				} while (nota > 7 || nota < 1);
+				arrayNotas.add(nota);
+			}
+
+			nombreHashmap.put(nombre, arrayNotas);
+
+			System.out.println("Si desea añadir otro alumno, ingrese 's' sin comillas, si no, ingrese 'n'.");
+			resp = teclado.next();
+
+		} while (!resp.equalsIgnoreCase("n"));
+
+		teclado.close();
+		return nombreHashmap;
+	}
