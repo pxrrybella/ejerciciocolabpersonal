@@ -26,13 +26,13 @@ public class EjerciciocolaborativoApplication {
 		
 		for(String i : nombreHashmap.keySet()){
 			//promedioNotasAlumno(nombreHashmap.get(i));
-			System.out.println("El promedio de " + i + " es " + promedioNotasAlumno(nombreHashmap.get(i)));
+			//System.out.println("El promedio de " + i + " es " + promedioNotasAlumno(nombreHashmap.get(i)));
 
 			sumadorTotal = sumadorTotal + promedioNotasAlumno(nombreHashmap.get(i));
 		}
 		double promTotal = sumadorTotal / nombreHashmap.size();
 
-		System.out.println("\nEl promedio de los alumnos es: " + promTotal + "\n");
+		//System.out.println("\nEl promedio de los alumnos es: " + promTotal + "\n");
 
 		return promTotal;
 	}
@@ -118,7 +118,10 @@ public class EjerciciocolaborativoApplication {
 			}while(opcion < 0 || opcion > 3);
 
 			if(opcion == 1){
-				promedioNotasTotal(hashmapNotas);
+				for(String i : hashmapNotas.keySet()){
+					System.out.println("El promedio de " + i + " es " + promedioNotasAlumno(hashmapNotas.get(i)));
+				}
+				System.out.println("\nEl promedio de los alumnos es: " + promedioNotasTotal(hashmapNotas) + "\n");
 			}else if (opcion == 2){
 				aprobado(hashmapNotas);
 			}else if(opcion == 3){
